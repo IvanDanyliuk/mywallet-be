@@ -6,6 +6,7 @@ const incomeSchema = mongoose.Schema({
   amount: Number,
   category: String,
   description: String,
+  badgeColor: String,
   createdAt: {
     type: Date,
     default: new Date(),

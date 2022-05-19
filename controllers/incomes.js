@@ -26,7 +26,8 @@ export const updateIncome = async (req, res) => {
 
 export const deleteIncome = async (req, res) => {
   try {
-    await Income.findByIdAndDelete(req.params.id);
+    const { id } = req.body;
+    await Income.findByIdAndDelete(id);
     res.status(200).json({ message: 'Income has been deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });

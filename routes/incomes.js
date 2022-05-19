@@ -6,6 +6,6 @@ const router = express.Router();
 router.get('/', getIncomes);
 router.post('/', createIncome);
 router.patch('/:id', updateIncome);
-router.delete('/:id', deleteIncome);
+router.delete('/', deleteIncome);
 
 export default router;
