@@ -21,7 +21,13 @@ export const createIncome = async (req, res) => {
 };
 
 export const updateIncome = async (req, res) => {
-
+  try {
+    const { id: _id, updatedIncome } = req.body;
+    await Income.findByIdAndUpdate(_id, { ...updatedIncome, _id}, { new: true });
+    res.status(200).json('Income item has been updated successfully');
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 export const deleteIncome = async (req, res) => {

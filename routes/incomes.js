@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', getIncomes);
 router.post('/', createIncome);
-router.patch('/:id', updateIncome);
+router.patch('/', updateIncome);
 router.delete('/', deleteIncome);
 
 export default router;
