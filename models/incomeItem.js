@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const incomeSchema = mongoose.Schema({
   user: String,
-  source: String,
+  title: String,
   amount: Number,
   category: String,
   description: String,

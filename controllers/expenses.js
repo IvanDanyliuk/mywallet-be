@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 import Expense from '../models/expenseItem.js';
 
 export const getExpenses = async (req, res) => {
@@ -21,14 +21,22 @@ export const createExpense = async (req, res) => {
 };
 
 export const updateExpense = async (req, res) => {
-
+  try {
+    const { id: _id, updatedExpense } = req.body;
+    await Expense.findByIdAndUpdate(_id, { ...updatedExpense, _id}, { new: true });
+    res.status(200).json('Expense item has been updated successfully');
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 export const deleteExpense = async (req, res) => {
   try {
-    await Expense.findByIdAndDelete(req.params.id);
+    const { id } = req.body;
+    await Expense.findByIdAndDelete(id);
     res.status(200).json({ message: 'Expense has been deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+

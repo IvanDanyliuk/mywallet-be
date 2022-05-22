@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', getExpenses);
 router.post('/', createExpense);
-router.patch('/:id', updateExpense);
-router.delete('/:id', deleteExpense);
+router.patch('/', updateExpense);
+router.delete('/', deleteExpense);
 
 export default router;
