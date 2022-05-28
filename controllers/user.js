@@ -48,7 +48,13 @@ export const signup = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-
+  try {
+    const { id: _id, updatedUser } = req.body;
+    await User.findByIdAndUpdate(_id, { ...updatedUser, _id}, { new: true });
+    res.status(200).json('User data has been updated successfully');
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 export const deleteUser = async (req, res) => {
