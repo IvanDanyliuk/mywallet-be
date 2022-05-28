@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 import Income from '../models/incomeItem.js';
 
 export const getIncomes = async (req, res) => {
+  const { userId } = req.query;
   try {
-    const incomes = await Income.find();
+    const incomes = await Income.find({ userId });
     res.status(200).json(incomes);
   } catch (error) {
     res.status(404).json({ message: error.message });

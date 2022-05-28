@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 import Expense from '../models/expenseItem.js';
 
 export const getExpenses = async (req, res) => {
+  const { userId } = req.query;
   try {
-    const expenses = await Expense.find();
+    const expenses = await Expense.find({ userId });
     res.status(200).json(expenses);
   } catch (error) {
     res.status(404).json({ message: error.message });

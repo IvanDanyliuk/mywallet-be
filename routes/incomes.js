@@ -1,5 +1,6 @@
 import express from 'express';
 import { getIncomes, createIncome, updateIncome, deleteIncome } from '../controllers/incomes.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const expenseSchema = mongoose.Schema({
-  user: String,
+  userId: String,
   title: String,
   amount: Number,
   category: String,
