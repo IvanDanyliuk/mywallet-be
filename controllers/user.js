@@ -85,7 +85,7 @@ export const setLanguage = async (req, res) => {
     const { id, language } = req.body;
     const user = await User.findById(id);
     await User.findByIdAndUpdate(id, { ...user._doc, language }, { new: true });
-    res.status(200).json('Language has been changed successfully.');
+    res.status(200).json(language);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -96,7 +96,7 @@ export const setCurrency = async (req, res) => {
     const { id, currency } = req.body;
     const user = await User.findById(id);
     await User.findByIdAndUpdate(id, { ...user._doc, currency }, { new: true });
-    res.status(200).json('Currency has been changed successfully.');
+    res.status(200).json(currency);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
