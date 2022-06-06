@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import incomesRoute from './routes/incomes.js';
 import expensesRoute from './routes/expenses.js';
 import userRoute from './routes/user.js';
+import reportsRoute from './routes/reports.js';
 
 const app = express();
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use('/incomes', incomesRoute);
 app.use('/expenses', expensesRoute);
 app.use('/user', userRoute);
+app.use('/reports', reportsRoute);
 
 const PORT = process.env.PORT || 5000;
 
