@@ -7,12 +7,20 @@ const reportSchema = mongoose.Schema({
     from: String,
     to: String
   },
-  data: [
-    {
-      source: String,
-      amount: Number,
-    },
-  ],
+  data: {
+    incomes: [
+      {
+        source: String,
+        amount: Number,
+      },
+    ],
+    expenses: [
+      {
+        source: String,
+        amount: Number,
+      },
+    ]
+  },
   comment: String,
   createdAt: {
     type: Date,
