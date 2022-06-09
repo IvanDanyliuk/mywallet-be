@@ -14,7 +14,7 @@ export const getReports = async (req, res) => {
 export const getReport = async (req, res) => {
   const { id } = req.params;
   try {
-    const report = await Report.findOne({ id });
+    const report = await Report.findById(id);
     res.status(200).json(report);
   } catch (error) {
     res.status(404).json({ message: error.message });

@@ -12,12 +12,14 @@ const reportSchema = mongoose.Schema({
       {
         source: String,
         amount: Number,
+        badgeColor: String,
       },
     ],
     expenses: [
       {
         source: String,
         amount: Number,
+        badgeColor: String,
       },
     ]
   },
