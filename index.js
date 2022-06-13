@@ -8,6 +8,7 @@ import incomesRoute from './routes/incomes.js';
 import expensesRoute from './routes/expenses.js';
 import userRoute from './routes/user.js';
 import reportsRoute from './routes/reports.js';
+import exchangeRouter from './routes/exchange.js';
 
 const app = express();
 dotenv.config();
@@ -20,6 +21,7 @@ app.use('/incomes', incomesRoute);
 app.use('/expenses', expensesRoute);
 app.use('/user', userRoute);
 app.use('/reports', reportsRoute);
+app.use('/exchange', exchangeRouter);
 
 const PORT = process.env.PORT || 5000;
 
